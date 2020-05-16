@@ -12,7 +12,7 @@
       <!-- Author -->
       <p class="lead">
         
-        {{article.author.username}} tarafından yayınlandı
+        Published By, {{article.author.username}}
       </p>
 
       <hr>
@@ -37,12 +37,11 @@
 
       <hr>
 
-      <h4>Yorumlar</h4>
+      <h4>Comments</h4>
       <hr>
       {% if comments %}
       {% for comment in comments  %}
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
             <h5 class="mt-0">{{comment.comment_author}}</h5>
             {{comment.comment_date}} <br>
@@ -54,24 +53,24 @@
       
       {% else %}
       <div class ="alert alert-danger">
-        Bu makaleye herhangi bir yorum yazılmamış,ilk yorum yapan siz olun!
+          There are no comments to this article, be the first!
       </div>
       {% endif %}
 
       <div class="card my-4">
-          <h5 class="card-header">Yorum Ekle:</h5>
+          <h5 class="card-header">Add Comment: </h5>
           <div class="card-body">
             <form method = "post" action = "{% url 'article:comment' article.id %}">
               {% csrf_token %}
               <div class="form-group">
-                  <label for="formGroupExampleInput">İsim</label>
-                  <input name = "comment_author" type="text" class="form-control" id="formGroupExampleInput" placeholder="İsminizi girin">
+                  <label for="formGroupExampleInput">Name</label>
+                  <input name = "comment_author" type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name">
                 </div>
               <div class="form-group">
-                  <label for="formGroupExampleInput">Yorum</label>
+                  <label for="formGroupExampleInput">Comment</label>
                 <textarea name = "comment_content" class="form-control" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-danger">Ekle</button>
+              <button type="submit" class="btn btn-danger">Add</button>
             </form>
           </div>
         </div>
