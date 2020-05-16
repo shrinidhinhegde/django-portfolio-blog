@@ -57,10 +57,9 @@ a {
 
 .bio {
   margin-bottom: 40px;
-  font-family: Lora, sans-serif;
-  color: #848d96;
+  color: #ddd;
   font-size: 21px;
-  line-height: 140%;
+  line-height: 100%;
 }
 
 .text-block-2 {
